@@ -17,10 +17,11 @@
 
             <ImageView
                 android:id="@+id/iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:src="@drawable/profile"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
                 <TextView
@@ -40,9 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="Contact"
-                    android:inputType="number"
-                    android:maxLength="10"
+                    android:text="@string/contact"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             </LinearLayout>

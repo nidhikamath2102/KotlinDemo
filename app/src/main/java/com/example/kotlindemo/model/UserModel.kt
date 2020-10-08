@@ -1,8 +1,8 @@
-package com.example.Class
+package com.example.kotlindemo.model
 
-class UserModel(var username: String?? = "5", var contact: Long?){
+class UserModel(var username: String? = "no name", var contact: String?){
     //?->while Data parsing null pointer exception handling
-    //?? = "5" - to set value by default
+    //?? = "no name" - to set value by default
 }
 
 

@@ -1,4 +1,4 @@
-package com.example.Class
+package com.example.kotlindemo.model
 
 class UserData{
     var usernames = listOf("Abc", "Def")

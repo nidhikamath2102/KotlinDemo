@@ -2,29 +2,18 @@ package com.example.kotlindemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.Adapter.UserAdapter
-import com.example.Class.UserData
-import com.example.Class.UserModel
+import com.example.kotlindemo.adapter.UserAdapter
+import com.example.kotlindemo.model.UserModel
 
 import org.json.JSONObject
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
-import java.lang.reflect.Method
 
 
 class MainActivity : AppCompatActivity() {
@@ -64,20 +53,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun getJSOndata() {
         val queue = Volley.newRequestQueue(this)
-        val jsonObjReq = object : JsonObjectRequest(Method.GET,
-            "https://www.themealdb.com/api/json/v1/1/list.php?c=list", null,
-            object : Response.Listener<JSONObject> {
+        val jsonObjReq = object : JsonArrayRequest(Method.GET,
+            "https://jsonplaceholder.typicode.com/users", null,
+            object : Response.Listener<JSONArray> {
 
-                override fun onResponse(response: JSONObject) {
+                override fun onResponse(response: JSONArray) {
 
                     Log.d("hello " ,"" +response)
 
-                    var jsonArray:JSONArray = response.optJSONArray("meals")
+                    var jsonArray:JSONArray = response;
 
                     for(i in 0..(jsonArray.length()-1)){
                         var jsonObject: JSONObject = jsonArray.optJSONObject(i)
-                        if(jsonObject.has("strCategory")){
-                            userModel.add(UserModel(jsonObject.optString("strCategory"), 123456000000))
+                        if(jsonObject.has("name")){
+                            userModel.add(UserModel(jsonObject.optString("name"), jsonObject.optString("phone")))
                         }
                     }
 
@@ -105,8 +94,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.Adapter.UserAdapter
-import com.example.Class.UserModel
+import com.example.kotlindemo.Adapter.UserAdapter
+import com.example.kotlindemo.Class.UserModel
 
 import org.json.JSONObject
 import android.util.Log

@@ -1,13 +1,12 @@
-package com.example.Adapter
+package com.example.kotlindemo.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.Class.UserModel
+import com.example.kotlindemo.model.UserModel
 import com.example.kotlindemo.R
 import java.util.ArrayList
 
@@ -27,7 +26,7 @@ data class UserAdapter(var userModel: ArrayList<UserModel>/*, var context: Conte
         //holder.tv_username.setText(userModel.get(position).username)
 
         holder.tv_username.text = userModel.get(position).username
-        holder.iv.setImageResource(R.mipmap.ic_launcher)
+        //holder.iv.setImageResource(R.mipmap.ic_launcher)
 
         holder.tv_contact.setText("${userModel.get(position).contact}")
 
@@ -43,7 +42,7 @@ data class UserAdapter(var userModel: ArrayList<UserModel>/*, var context: Conte
 
 
 /*
-package com.example.Adapter
+package com.example.kotlindemo.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -52,7 +51,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.Class.UserModel
+import com.example.kotlindemo.Class.UserModel
 import com.example.kotlindemo.R
 import java.util.ArrayList
 
